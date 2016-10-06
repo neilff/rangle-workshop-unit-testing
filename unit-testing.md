@@ -35,12 +35,14 @@
 
 ---
 
-# Overview
+# Introduction
+## 10 mins
 
-- Introduction
+- We will cover...
 	- What is a Unit Test?
 	- Unit Test Requirements
 	- Unit Test Structure
+	- What Defines a Good Unit Test
 
 ---
 
@@ -59,6 +61,13 @@
 ## What is a Unit Test?
 
 - Unit test can be described as the smallest testable parts of an application
+
+```
+function getUsersWithFirstName(name, users) {
+	return users.filter(i => i.firstName === name);
+}
+```
+
 
 ---
 
@@ -92,11 +101,10 @@ import utils from 'utils';
 describe('utils', () => {
   context('reverseString', () => {
     it('should reverse a string', () => {
-	  const input = 'abc'; // Arrange
-	
-   	  const result = utils.reverseString(input); // Act
+	  const expected = 'cba'; // Arrange
+   	  const actual = utils.reverseString('abc'); // Act
    	  
-   	  expect(result).to.equal('cba'); // Assert
+   	  expect(actual).to.equal(expected); // Assert
     });
   });
 });
@@ -135,14 +143,14 @@ describe('My new feature', () => {
 
 ---
 
-## What was the output?
+## What was the input?
 
 ```
 describe('My new feature', () => {
 	it('should return the provided string, but in reverse', () => {
-		const input = 'abc';
-		const result = reverseString(input);
-		...
+	  const expected = 'cba';
+   	  const actual = utils.reverseString('abc');
+	  ...
 	});
 }));
 ```
@@ -154,9 +162,10 @@ describe('My new feature', () => {
 ```
 describe('My new feature', () => {
 	it('should return the provided string, but in reverse', () => {
-		const input = 'abc';
-		const result = reverseString(input);
-		expect(result).to.equal('bca');
+	  const expected = 'cba';
+   	  const actual = utils.reverseString('abc');
+   	  
+   	  expect(actual).to.equal(expected);
 	});
 }));
 ```
@@ -182,7 +191,8 @@ We prefer equal because it is dead simple, and will result in readable, document
 
 ---
 
-## Overview
+# Thinking Like a Tester
+## 10mins
 
 - Thinking Like a Tester
 	- Approaches to Writing Unit Test Cases
@@ -254,7 +264,6 @@ We prefer equal because it is dead simple, and will result in readable, document
 ```
     it('should allow a number between 0 - 9', () => {
 	  const input = 0;
-	
    	  const result = onChange(input);
    	  
    	  expect(result).to.equal(0);
@@ -378,7 +387,7 @@ All files                      |    83.87 |    86.67 |       80 |    83.87 |    
 
 ### Coverage Overview
 
-- They mean absolutely _nothing_ in terms of quality of tests
+- High % of Coverage != High Quality Tests
 - Use them to note possible areas where tests are missing
 
 ^ Statements being high while branches being low is a bad sign
