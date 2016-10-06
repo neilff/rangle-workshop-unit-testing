@@ -3,11 +3,17 @@ import { expect } from 'chai';
 
 import { calculateWage } from './wage-calculator';
 
+
+/**
+ * Questions:
+ *
+ * - What are some of the expected / unexpected values we should test?
+ * - What are some of the boundaries that we should test?
+ * - How are some of the ways in which we could refactor to improve this code?
+ *
+ */
 describe('function calculateWage: ', function() {
   it ('should return the hourly wage with no bonus if the worker worked regular time', function() {
-    // Using Date can be risky here, depending on what day this test is run
-    // it might fail. The function might be considered easier to test if it
-    // did not use Date at all and instead used unix time
     const startDate = new Date('July 18, 2015');
     startDate.setDate(startDate.getDate() - 2);
 

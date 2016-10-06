@@ -1,8 +1,8 @@
 import { AlbumService } from './album-service';
 import { expect } from 'chai';
 
-// Superhax
 import { DB } from './db';
+
 DB.prototype.getArtists = function () {
   return [];
 }
@@ -16,8 +16,7 @@ DB.prototype.getTracks = function () {
 }
 
 describe('AlbumService', () => {
-  // Happy Cases:
-
+  // Happy Path
   it('should let me get all the album titles', () => {
     DB.prototype.getAlbums = function() {
       return [

@@ -1,9 +1,12 @@
 import { DB } from './db';
 
 /**
- * Why is this API hard to use?
- * Why is this code hard to test?
- * Why is this code bad?
+ * Questions:
+ *
+ * - Why is this API hard to use?
+ * - Why is this code hard to test?
+ * - Why is this code bad?
+ *
  */
 export class AlbumService {
   constructor() {
